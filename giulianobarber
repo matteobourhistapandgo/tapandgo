@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Giuliano Barber Shop — L'Isle-Adam</title>
+
+  <meta
+    name="description"
+    content="Giuliano Barber Shop à L'Isle-Adam. Coupe homme, barbe, soins et prestations esthétiques. Réservez votre rendez-vous en ligne."
+  >
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #111;
+      color: #f5f5f5;
+      line-height: 1.5;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+      min-height: 100vh;
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+
+      background:
+        linear-gradient(
+          to top,
+          rgba(0,0,0,0.95) 0%,
+          rgba(0,0,0,0.55) 45%,
+          rgba(0,0,0,0.15) 100%
+        ),
+        url("images/hero.jpg") center/cover no-repeat;
+
+      background-color: #222;
+    }
+
+    .hero-content {
+      width: 100%;
+      max-width: 1100px;
+      margin: auto;
+      padding: 80px 25px 55px;
+    }
+
+    .eyebrow {
+      font-size: 13px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: #c9a66b;
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      font-family: Georgia, serif;
+      font-size: clamp(48px, 10vw, 92px);
+      line-height: 0.95;
+      text-transform: uppercase;
+      letter-spacing: -3px;
+      max-width: 850px;
+    }
+
+    .hero-subtitle {
+      margin-top: 22px;
+      font-size: 18px;
+      color: #ddd;
+      max-width: 550px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50px;
+      padding: 0 24px;
+      border: 1px solid #c9a66b;
+      font-weight: bold;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: 0.25s ease;
+    }
+
+    .btn-primary {
+      background: #c9a66b;
+      color: #111;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      opacity: 0.9;
+    }
+
+    /* =========================
+       GENERAL
+    ========================= */
+
+    section {
+      padding: 80px 20px;
+    }
+
+    .container {
+      max-width: 1050px;
+      margin: auto;
+    }
+
+    .section-label {
+      color: #c9a66b;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 12px;
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      font-family: Georgia, serif;
+      font-size: clamp(34px, 7vw, 55px);
+      margin-bottom: 35px;
+    }
+
+    /* =========================
+       INTRO
+    ========================= */
+
+    .intro {
+      background: #181818;
+      text-align: center;
+    }
+
+    .intro p {
+      max-width: 760px;
+      margin: auto;
+      color: #cfcfcf;
+      font-size: 17px;
+    }
+
+    /* =========================
+       SERVICES
+    ========================= */
+
+    .services {
+      background: #0d0d0d;
+    }
+
+    .service-category {
+      margin-bottom: 50px;
+    }
+
+    .category-title {
+      font-family: Georgia, serif;
+      font-size: 28px;
+      margin-bottom: 18px;
+      border-bottom: 1px solid #333;
+      padding-bottom: 12px;
+    }
+
+    .service {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 18px 0;
+      border-bottom: 1px solid #242424;
+    }
+
+    .service-name {
+      font-weight: bold;
+    }
+
+    .service-description {
+      color: #999;
+      font-size: 13px;
+      margin-top: 3px;
+      max-width: 650px;
+    }
+
+    .price {
+      white-space: nowrap;
+      color: #c9a66b;
+      font-weight: bold;
+    }
+
+    /* =========================
+       BOOKING
+    ========================= */
+
+    .booking {
+      background: #c9a66b;
+      color: #111;
+      text-align: center;
+    }
+
+    .booking .section-label {
+      color: #111;
+    }
+
+    .booking .section-title {
+      margin-bottom: 15px;
+    }
+
+    .booking p {
+      max-width: 600px;
+      margin: 0 auto 28px;
+    }
+
+    .booking .btn {
+      border-color: #111;
+      background: #111;
+      color: white;
+    }
+
+    /* =========================
+       GALLERY
+    ========================= */
+
+    .gallery {
+      background: #151515;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .gallery-item {
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      background: #252525;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+
+    /* =========================
+       INFOS
+    ========================= */
+
+    .infos {
+      background: #0d0d0d;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .info-card {
+      border: 1px solid #292929;
+      padding: 28px;
+      background: #151515;
+    }
+
+    .info-card h3 {
+      font-family: Georgia, serif;
+      font-size: 25px;
+      margin-bottom: 18px;
+    }
+
+    .info-card p {
+      color: #bbb;
+      margin-bottom: 8px;
+    }
+
+    .info-card strong {
+      color: white;
+    }
+
+    .hours {
+      display: grid;
+      gap: 7px;
+    }
+
+    .hours-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      border-bottom: 1px solid #252525;
+      padding-bottom: 7px;
+    }
+
+    .closed {
+      color: #777;
+    }
+
+    /* =========================
+       SOCIAL
+    ========================= */
+
+    .social {
+      text-align: center;
+      background: #181818;
+    }
+
+    .social p {
+      color: #aaa;
+      margin-bottom: 25px;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      background: #080808;
+      text-align: center;
+      padding: 30px 20px;
+      color: #777;
+      font-size: 12px;
+    }
+
+    footer strong {
+      color: #c9a66b;
+    }
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 700px) {
+
+      section {
+        padding: 65px 18px;
+      }
+
+      .hero {
+        min-height: 90vh;
+      }
+
+      .hero-content {
+        padding: 60px 20px 35px;
+      }
+
+      h1 {
+        letter-spacing: -2px;
+      }
+
+      .hero-subtitle {
+        font-size: 16px;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .service {
+        align-items: flex-start;
+      }
+
+      .price {
+        font-size: 15px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================
+       HERO
+  ========================= -->
+
+  <header class="hero">
+
+    <div class="hero-content">
+
+      <div class="eyebrow">
+        L'Isle-Adam · Depuis 2013
+      </div>
+
+      <h1>
+        Giuliano<br>
+        Barber Shop
+      </h1>
+
+      <p class="hero-subtitle">
+        Barber · Coiffeur · Soins homme
+      </p>
+
+      <div class="hero-buttons">
+
+        <a
+          class="btn btn-primary"
+          href="https://www.planity.com/giuliano-barber-shop-95290-lisle-adam"
+          target="_blank"
+          rel="noopener"
+        >
+          Prendre rendez-vous
+        </a>
+
+        <a
+          class="btn"
+          href="#prestations"
+        >
+          Voir les prestations
+        </a>
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <!-- =========================
+       INTRO
+  ========================= -->
+
+  <section class="intro">
+
+    <div class="container">
+
+      <div class="section-label">
+        Giuliano Barber Shop
+      </div>
+
+      <h2 class="section-title">
+        L'art du barber
+      </h2>
+
+      <p>
+        Ouvert depuis 2013 à L'Isle-Adam, Giuliano Barber Shop
+        propose des coupes, tailles et rasages de barbe ainsi que
+        différentes prestations de soins et d'esthétique homme.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       SERVICES
+  ========================= -->
+
+  <section class="services" id="prestations">
+
+    <div class="container">
+
+      <div class="section-label">
+        Nos prestations
+      </div>
+
+      <h2 class="section-title">
+        Tarifs
+      </h2>
+
+
+      <!-- COIFFURE -->
+
+      <div class="service-category">
+
+        <h3 class="category-title">
+          Coupe & Barbe
+        </h3>
+
+        <div class="service">
+          <div>
+            <div class="service-name">Coupe homme</div>
+          </div>
+          <div class="price">30 €</div>
+        </div>
+
+        <div class="service">
+          <div>
+            <div class="service-name">Traçage + taille de barbe</div>
+          </div>
+          <div class="price">20 €</div>
+        </div>
+
+        <div class="service">
+          <div>
+            <div class="service-name">Coupe de cheveux + taille barbe</div>
+          </div>
+          <div class="price">45 €</div>
+        </div>
+
+        <div class="service">
+          <div>
+            <div class="service-name">Taille + traçage de bouc</div>
+          </div>
+          <div class="price">30 €</div>
+        </div>
+
+        <div class="service">
+          <div>
+            <div class="service-name">Rasage crâne</div>
+          </div>
+          <div class="price">35 €</div>
+        </div>
+
+        <div class="service">
+          <div>
+            <div class="service-name">Coupe -12 ans</div>
+          </div>
+          <div class="price">20 €</div>
+        </div>
+
+        <div class="service">
+          <div>
+            <div class="service-name">Contours de barbe</div>
+          </div>
+          <div class="price">16 €</div>
+        </div>
+
+      </div>
+
+
+      <!-- EPILATION -->
+
+      <div class="service-category">
+
+        <h3 class="category-title">
+          Épilation
+        </h3>
+
+        <div class="service">
+          <div>
+            <div class="service-name">Sourcils</div>
+          </div>
+          <div class="price">10 €</div>
+        </div>
+
+        <div class="service">
+          <div>
+            <div class="service-name">Oreilles</div>
+          </div>
+          <div class="price">10 €</div>
+        </div>
+
+        <div class="service">
+          <div>
+            <div class="service-name">Nez</div>
+          </div>
+          <div class="price">8 €</div>
+        </div>
+
+        <div class="service">
+          <div>
+            <div class="service-name">Aisselles</div>
+          </div>
+          <div class="price">12 €</div>
+        </div>
+
+      </div>
+
+
+      <!-- SOINS -->
+
+      <div class="service-category">
+
+        <h3 class="category-title">
+          Soins
+        </h3>
+
+        <div class="service">
+          <div>
+            <div class="service-name">L'Éclat</div>
+            <div class="service-description">
+              Nettoyage, gommage, masque et crème de jour.
+            </div>
+          </div>
+          <div class="price">40 €</div>
+        </div>
+
+        <div class="service">
+          <div>
+            <div class="service-name">Le Parfait</div>
+            <div class="service-description">
+              Nettoyage, gommage, vapozone, extraction des comédons,
+              modelage relaxant, masque et crème de jour.
+            </div>
+          </div>
+          <div class="price">75 €</div>
+        </div>
+
+        <div class="service">
+          <div>
+            <div class="service-name">Manucure Homme</div>
+            <div class="service-description">
+              Mise en forme de l'ongle, soin des cuticules,
+              gommage réparateur et modelage des mains.
+            </div>
+          </div>
+          <div class="price">40 €</div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       BOOKING
+  ========================= -->
+
+  <section class="booking">
+
+    <div class="container">
+
+      <div class="section-label">
+        Réservation en ligne
+      </div>
+
+      <h2 class="section-title">
+        Ton prochain rendez-vous
+      </h2>
+
+      <p>
+        Choisis ta prestation et réserve directement ton créneau
+        en ligne sur Planity.
+      </p>
+
+      <a
+        class="btn"
+        href="https://www.planity.com/giuliano-barber-shop-95290-lisle-adam"
+        target="_blank"
+        rel="noopener"
+      >
+        Réserver sur Planity
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       GALERIE
+  ========================= -->
+
+  <section class="gallery">
+
+    <div class="container">
+
+      <div class="section-label">
+        Le salon
+      </div>
+
+      <h2 class="section-title">
+        Galerie
+      </h2>
+
+      <div class="gallery-grid">
+
+        <div class="gallery-item">
+          <img src="images/photo1.jpg" alt="Giuliano Barber Shop">
+        </div>
+
+        <div class="gallery-item">
+          <img src="images/photo2.jpg" alt="Giuliano Barber Shop">
+        </div>
+
+        <div class="gallery-item">
+          <img src="images/photo3.jpg" alt="Giuliano Barber Shop">
+        </div>
+
+        <div class="gallery-item">
+          <img src="images/photo4.jpg" alt="Giuliano Barber Shop">
+        </div>
+
+        <div class="gallery-item">
+          <img src="images/photo5.jpg" alt="Giuliano Barber Shop">
+        </div>
+
+        <div class="gallery-item">
+          <img src="images/photo6.jpg" alt="Giuliano Barber Shop">
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       INFOS
+  ========================= -->
+
+  <section class="infos">
+
+    <div class="container">
+
+      <div class="section-label">
+        Informations
+      </div>
+
+      <h2 class="section-title">
+        Retrouvez-nous
+      </h2>
+
+      <div class="info-grid">
+
+
+        <!-- ADRESSE -->
+
+        <div class="info-card">
+
+          <h3>
+            Le salon
+          </h3>
+
+          <p>
+            <strong>Giuliano Barber Shop</strong>
+          </p>
+
+          <p>
+            27 Rue de Nogent<br>
+            95290 L'Isle-Adam
+          </p>
+
+          <br>
+
+          <a
+            class="btn"
+            href="https://www.google.com/maps/search/?api=1&query=27+Rue+de+Nogent+95290+L%27Isle-Adam"
+            target="_blank"
+            rel="noopener"
+          >
+            Itinéraire
+          </a>
+
+          <br><br>
+
+          <a
+            href="tel:+33175469472"
+          >
+            📞 01 75 46 94 72
+          </a>
+
+        </div>
+
+
+        <!-- HORAIRES -->
+
+        <div class="info-card">
+
+          <h3>
+            Horaires
+          </h3>
+
+          <div class="hours">
+
+            <div class="hours-row">
+              <span>Lundi</span>
+              <span class="closed">Fermé</span>
+            </div>
+
+            <div class="hours-row">
+              <span>Mardi</span>
+              <span>09h–13h / 13h30–18h30</span>
+            </div>
+
+            <div class="hours-row">
+              <span>Mercredi</span>
+              <span class="closed">Fermé</span>
+            </div>
+
+            <div class="hours-row">
+              <span>Jeudi</span>
+              <span>09h–13h / 13h30–18h30</span>
+            </div>
+
+            <div class="hours-row">
+              <span>Vendredi</span>
+              <span>09h–13h / 13h30–18h30</span>
+            </div>
+
+            <div class="hours-row">
+              <span>Samedi</span>
+              <span>08h30–13h / 14h–18h30</span>
+            </div>
+
+            <div class="hours-row">
+              <span>Dimanche</span>
+              <span class="closed">Fermé</span>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       AVIS
+  ========================= -->
+
+  <section class="social">
+
+    <div class="container">
+
+      <div class="section-label">
+        Avis clients
+      </div>
+
+      <h2 class="section-title">
+        5,0 / 5 ⭐
+      </h2>
+
+      <p>
+        Plus de 470 avis clients sur Planity.
+      </p>
+
+      <a
+        class="btn"
+        href="https://www.planity.com/giuliano-barber-shop-95290-lisle-adam"
+        target="_blank"
+        rel="noopener"
+      >
+        Voir les avis
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       FACEBOOK
+  ========================= -->
+
+  <section class="social">
+
+    <div class="container">
+
+      <div class="section-label">
+        Suivez Giuliano
+      </div>
+
+      <h2 class="section-title">
+        Facebook
+      </h2>
+
+      <p>
+        Retrouvez l'actualité du salon sur Facebook.
+      </p>
+
+      <a
+        class="btn"
+        href="https://www.facebook.com/giulianoshop/?locale=fr_FR"
+        target="_blank"
+        rel="noopener"
+      >
+        Voir Facebook
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       FOOTER
+  ========================= -->
+
+  <footer>
+
+    <p>
+      <strong>GIULIANO BARBER SHOP</strong>
+    </p>
+
+    <p>
+      27 Rue de Nogent · 95290 L'Isle-Adam
+    </p>
+
+    <p>
+      © 2026 Giuliano Barber Shop
+    </p>
+
+  </footer>
+
+
+</body>
+</html>
