@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Le Loft - L'Isle-Adam</title>
+
+  <title>Le Loft — L'Isle-Adam</title>
 
   <style>
     * {
@@ -13,95 +14,363 @@
     }
 
     body {
-      font-family: Arial, sans-serif;
-      background: #f7f4ef;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      background: #f5f1ea;
       color: #222;
       min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      padding: 30px 15px;
     }
 
     .container {
       width: 100%;
-      max-width: 430px;
-      text-align: center;
+      max-width: 520px;
+      margin: auto;
+      padding-bottom: 35px;
     }
 
-    h1 {
-      font-size: 30px;
+    /* HERO */
+
+    .hero {
+      min-height: 360px;
+      background:
+        linear-gradient(
+          rgba(0,0,0,0.28),
+          rgba(0,0,0,0.55)
+        ),
+        url("https://www.restaurant-le-loft.com/wp-content/uploads/2024/01/loft-restaurant.jpg");
+
+      background-size: cover;
+      background-position: center;
+
+      display: flex;
+      align-items: flex-end;
+      padding: 35px 24px;
+
+      color: white;
+    }
+
+    .hero h1 {
+      font-size: 42px;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    .hero p {
+      margin-top: 6px;
+      font-size: 17px;
+      opacity: 0.95;
+    }
+
+    /* CONTENT */
+
+    .content {
+      padding: 25px 18px;
+    }
+
+    .intro {
+      text-align: center;
+      margin-bottom: 22px;
+    }
+
+    .intro h2 {
+      font-size: 22px;
       margin-bottom: 8px;
     }
 
-    .subtitle {
+    .intro p {
       color: #666;
-      margin-bottom: 30px;
+      line-height: 1.5;
+      font-size: 15px;
     }
+
+    /* BUTTONS */
 
     .buttons {
       display: flex;
       flex-direction: column;
-      gap: 15px;
+      gap: 12px;
     }
 
-    a {
-      display: block;
+    .button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+
       padding: 17px 20px;
+
       border-radius: 14px;
+
       background: white;
       color: #222;
+
       text-decoration: none;
-      font-size: 17px;
+
+      font-size: 16px;
       font-weight: 600;
+
       box-shadow: 0 3px 12px rgba(0,0,0,0.08);
-      transition: 0.2s;
+
+      transition: transform 0.2s, box-shadow 0.2s;
     }
 
-    a:hover {
+    .button:hover {
       transform: translateY(-2px);
-      box-shadow: 0 5px 15px rgba(0,0,0,0.12);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.12);
     }
 
-    .footer {
-      margin-top: 35px;
-      font-size: 13px;
-      color: #999;
+    .button.primary {
+      background: #222;
+      color: white;
     }
+
+    /* CARDS */
+
+    .cards {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin-top: 25px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 16px;
+      padding: 20px;
+
+      box-shadow: 0 3px 12px rgba(0,0,0,0.07);
+    }
+
+    .card h3 {
+      font-size: 19px;
+      margin-bottom: 8px;
+    }
+
+    .card p {
+      color: #666;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .price {
+      margin-top: 10px;
+      font-weight: 700;
+      color: #222;
+    }
+
+    /* INFOS */
+
+    .infos {
+      margin-top: 25px;
+      background: #222;
+      color: white;
+      border-radius: 16px;
+      padding: 22px;
+    }
+
+    .infos h3 {
+      margin-bottom: 14px;
+      font-size: 20px;
+    }
+
+    .infos p {
+      font-size: 14px;
+      line-height: 1.7;
+      opacity: 0.9;
+    }
+
+    .infos a {
+      color: white;
+      text-decoration: none;
+    }
+
+    /* FOOTER */
+
+    footer {
+      text-align: center;
+      margin-top: 28px;
+      color: #999;
+      font-size: 12px;
+    }
+
+    footer strong {
+      color: #777;
+    }
+
   </style>
 </head>
 
 <body>
 
-  <div class="container">
+  <main class="container">
 
-    <h1>Le Loft</h1>
-    <p class="subtitle">L'Isle-Adam</p>
+    <!-- HERO -->
 
-    <div class="buttons">
+    <section class="hero">
+      <div>
+        <h1>LE LOFT</h1>
+        <p>Café • Restaurant • Brunch</p>
+      </div>
+    </section>
 
-      <a href="https://www.google.com/" target="_blank">
-        ⭐ Avis Google
-      </a>
 
-      <a href="#" target="_blank">
-        📸 Instagram
-      </a>
+    <section class="content">
 
-      <a href="#" target="_blank">
-        📞 Nous contacter
-      </a>
+      <!-- INTRO -->
 
-      <a href="#" target="_blank">
-        🌐 Notre site
-      </a>
+      <div class="intro">
 
-    </div>
+        <h2>Bienvenue au Loft</h2>
 
-    <div class="footer">
-      Propulsé par TapAndGo
-    </div>
+        <p>
+          Le rendez-vous gourmand de L'Isle-Adam,
+          entre brasserie, buffets et bar gourmand.
+        </p>
 
-  </div>
+      </div>
+
+
+      <!-- BUTTONS -->
+
+      <div class="buttons">
+
+        <a
+          class="button primary"
+          href="https://www.restaurant-le-loft.com/"
+          target="_blank"
+        >
+          🍽️ Découvrir le restaurant
+        </a>
+
+
+        <a
+          class="button"
+          href="https://www.restaurant-le-loft.com/avis/"
+          target="_blank"
+        >
+          ⭐ Donner mon avis
+        </a>
+
+
+        <a
+          class="button"
+          href="https://www.instagram.com/leloftlisleadam/"
+          target="_blank"
+        >
+          📸 Instagram
+        </a>
+
+
+        <a
+          class="button"
+          href="tel:+33134690100"
+        >
+          📞 Appeler le Loft
+        </a>
+
+
+        <a
+          class="button"
+          href="https://www.google.com/maps/search/?api=1&query=16+Grande+Rue+95290+L%27Isle-Adam"
+          target="_blank"
+        >
+          📍 Nous trouver
+        </a>
+
+      </div>
+
+
+      <!-- EXPERIENCES -->
+
+      <div class="cards">
+
+        <div class="card">
+
+          <h3>🥐 BRUNCH DU DIMANCHE</h3>
+
+          <p>
+            Un grand buffet de 25 mètres avec produits frais,
+            plats chauds, barbecue, fruits de mer,
+            viennoiseries et gourmandises.
+          </p>
+
+          <div class="price">
+            À partir de 33,90 €
+          </div>
+
+        </div>
+
+
+        <div class="card">
+
+          <h3>🍴 BUFFET DU MARCHÉ</h3>
+
+          <p>
+            Un buffet à volonté avec entrée, plat et dessert,
+            composé de produits frais et locaux.
+          </p>
+
+          <div class="price">
+            À partir de 18,90 €
+          </div>
+
+        </div>
+
+
+        <div class="card">
+
+          <h3>🍸 BAR GOURMAND</h3>
+
+          <p>
+            Coffee shop, crêpes, desserts maison,
+            glaces, tapas, planches et boissons gourmandes.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- INFOS -->
+
+      <div class="infos">
+
+        <h3>📍 Informations</h3>
+
+        <p>
+          <strong>Le Loft</strong><br>
+          16 Grande Rue<br>
+          95290 L'Isle-Adam
+        </p>
+
+        <br>
+
+        <p>
+          📞
+          <a href="tel:+33134690100">
+            01 34 69 01 00
+          </a>
+        </p>
+
+        <br>
+
+        <p>
+          <strong>Horaires</strong><br>
+          Lun. – Mer. : 06h45 – 20h00<br>
+          Jeudi : 06h45 – 21h00<br>
+          Ven. – Sam. : 06h45 – 23h00<br>
+          Dimanche : 08h00 – 21h00
+        </p>
+
+      </div>
+
+
+      <footer>
+        Une expérience proposée par <strong>TapAndGo</strong>
+      </footer>
+
+    </section>
+
+  </main>
 
 </body>
 </html>
